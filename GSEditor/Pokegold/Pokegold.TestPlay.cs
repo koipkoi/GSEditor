@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using GSEditor.Common.Utilities;
+using System.Diagnostics;
 using System.IO;
 
 namespace GSEditor.Core;
@@ -13,8 +14,8 @@ public sealed partial class Pokegold
       var withoutExtFilename = Path.GetFileNameWithoutExtension(Filename);
       var saveFilename = Path.Combine(path, $"{withoutExtFilename}.sav");
 
-      var newFilename = Path.Combine(Platform.AppDataDir, $"test_play_temp.gbc");
-      var newSaveFilename = Path.Combine(Platform.AppDataDir, $"test_play_temp.sav");
+      var newFilename = Path.Combine(Platforms.AppDataDir, $"test_play_temp.gbc");
+      var newSaveFilename = Path.Combine(Platforms.AppDataDir, $"test_play_temp.sav");
       File.Copy(Filename, newFilename, true);
       if (File.Exists(saveFilename))
         File.Copy(saveFilename, newSaveFilename, true);

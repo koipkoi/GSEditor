@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GSEditor.Common.Utilities;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Linq;
 using System.IO;
@@ -32,7 +33,7 @@ internal sealed class JsonIOHelper
     }
   }
 
-  private string SettingsPath => Path.Combine(Platform.AppDataDir, _filename);
+  private string SettingsPath => Path.Combine(Platforms.AppDataDir, _filename);
 
   public JsonIOHelper(string filename)
   {

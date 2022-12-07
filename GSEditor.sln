@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSEditor", "GSEditor\GSEditor.csproj", "{75CE283A-AF22-4AE9-B60E-C1EFE0FDB30C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSEditor.Common", "GSEditor.Common\GSEditor.Common.csproj", "{448587F3-D888-48B6-B799-7C7694C7BCD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +17,10 @@ Global
 		{75CE283A-AF22-4AE9-B60E-C1EFE0FDB30C}.Debug|x86.Build.0 = Debug|x86
 		{75CE283A-AF22-4AE9-B60E-C1EFE0FDB30C}.Release|x86.ActiveCfg = Release|x86
 		{75CE283A-AF22-4AE9-B60E-C1EFE0FDB30C}.Release|x86.Build.0 = Release|x86
+		{448587F3-D888-48B6-B799-7C7694C7BCD5}.Debug|x86.ActiveCfg = Debug|x86
+		{448587F3-D888-48B6-B799-7C7694C7BCD5}.Debug|x86.Build.0 = Debug|x86
+		{448587F3-D888-48B6-B799-7C7694C7BCD5}.Release|x86.ActiveCfg = Release|x86
+		{448587F3-D888-48B6-B799-7C7694C7BCD5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

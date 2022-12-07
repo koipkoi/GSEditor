@@ -1,29 +1,16 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Reflection;
 
-namespace GSEditor.Core;
+namespace GSEditor.Common.Utilities;
 
-public sealed class Platform
+public sealed class Platforms
 {
-  /// <summary>
-  /// 이름
-  /// </summary>
   public static string AppName => Assembly.GetEntryAssembly()!.GetName().Name!;
-
-  /// <summary>
-  /// 버전
-  /// </summary>
   public static string AppVersion => Assembly.GetEntryAssembly()!.GetName().Version!.ToString();
 
-  /// <summary>
-  /// 앱 경로
-  /// </summary>
   public static string AppDir => AppDomain.CurrentDomain.BaseDirectory;
-
-  /// <summary>
-  /// 앱 데이터 경로
-  /// </summary>
   public static string AppDataDir
   {
     get
@@ -35,9 +22,6 @@ public sealed class Platform
     }
   }
 
-  /// <summary>
-  /// 윈도우 OS 빌드 버전
-  /// </summary>
   public static int WindowsBuildVersion
   {
     get

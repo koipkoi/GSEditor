@@ -85,6 +85,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\GSEditor.Common\GSEditor.Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Resource Include="Resources\Images\app_icon_64.png" />
 	  <Resource Include="Resources\Images\if_database.png" />
 	  <Resource Include="Resources\Images\if_exit.png" />

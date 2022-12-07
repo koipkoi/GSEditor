@@ -1,6 +1,6 @@
-﻿using GSEditor.Core;
+﻿using GSEditor.Common.Utilities;
+using GSEditor.Core;
 using GSEditor.Core.PokegoldCore;
-using GSEditor.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Controls;

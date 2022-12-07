@@ -1,4 +1,5 @@
-﻿using GSEditor.Core;
+﻿using GSEditor.Common.Utilities;
+using GSEditor.Core;
 using System.Windows;
 
 namespace GSEditor.UI.Windows;
@@ -79,7 +80,7 @@ public partial class AppInformationDialog : Window
   {
     InitializeComponent();
 
-    VersionLabel.Content = $"버전：{Platform.AppVersion}";
+    VersionLabel.Content = $"버전：{Platforms.AppVersion}";
     ContentMarkdown.HereMarkdown = AppVersions;
   }
 

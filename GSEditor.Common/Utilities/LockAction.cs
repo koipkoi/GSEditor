@@ -1,4 +1,7 @@
-﻿namespace GSEditor.Utilities;
+﻿using System;
+using System.Collections.Generic;
+
+namespace GSEditor.Common.Utilities;
 
 public static class LockAction
 {

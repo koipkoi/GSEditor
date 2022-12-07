@@ -1,7 +1,7 @@
 ﻿using GSEditor.Core;
 using GSEditor.Core.PokegoldCore;
 using GSEditor.UI.Controls;
-using GSEditor.Utilities;
+using GSEditor.Common.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 using System.IO;

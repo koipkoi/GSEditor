@@ -3,23 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:markups="clr-namespace:GSEditor.Common.Markups;assembly=GSEditor.Common"
              xmlns:controls="clr-namespace:GSEditor.UI.Controls"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:vm="clr-namespace:GSEditor.ViewModels.Tabs"
              mc:Ignorable="d"
              d:DesignHeight="1280"
-             d:DesignWidth="650">
+             d:DesignWidth="650"
+             Loaded="{markups:EventBinding RefreshTab}"
+             Unloaded="{markups:EventBinding UnloadTab}">
+  <UserControl.DataContext>
+    <vm:UnownTabViewModel />
+  </UserControl.DataContext>
 
   <Grid>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto" />
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
+
     <ListBox Grid.Column="0"
              Name="UnownListBox"
              Width="144"
              Margin="4"
              Style="{DynamicResource GSEditor_Style_ListBox_Colored}"
-             SelectionChanged="OnUnownListBoxSelected" />
+             SelectionChanged="{markups:EventBinding UpdateCurrentInfo}" />
+
     <Border Grid.Column="1"
             Name="ContentBorder"
             Margin="0, 4, 4, 4"
@@ -38,13 +47,13 @@
                               ShowTabHeaders="False"
                               ColorMode="ColorCanvas"
                               DisplayColorAndName="False"
-                              SelectedColorChanged="OnColorPickerValueChanged" />
+                              SelectedColorChanged="{markups:EventBinding ApplyCurrentInfo}" />
             <xctk:ColorPicker Name="Color2"
                               Width="64"
                               ShowTabHeaders="False"
                               ColorMode="ColorCanvas"
                               DisplayColorAndName="False"
-                              SelectedColorChanged="OnColorPickerValueChanged" />
+                              SelectedColorChanged="{markups:EventBinding ApplyCurrentInfo}" />
             <Label VerticalAlignment="Center">/</Label>
             <xctk:ColorPicker Name="ShinyColor1"
                               Width="64"
@@ -52,72 +61,69 @@
                               ShowTabHeaders="False"
                               ColorMode="ColorCanvas"
                               DisplayColorAndName="False"
-                              SelectedColorChanged="OnColorPickerValueChanged" />
+                              SelectedColorChanged="{markups:EventBinding ApplyCurrentInfo}" />
             <xctk:ColorPicker Name="ShinyColor2"
                               Width="64"
                               Margin="0, 0, 4, 0"
                               ShowTabHeaders="False"
                               ColorMode="ColorCanvas"
                               DisplayColorAndName="False"
-                              SelectedColorChanged="OnColorPickerValueChanged" />
+                              SelectedColorChanged="{markups:EventBinding ApplyCurrentInfo}" />
           </StackPanel>
-          
+
           <Label Margin="0, 16, 0, 8"
                  Style="{DynamicResource GSEditor_Style_Label_Section}">이미지 &amp; 색상</Label>
           <StackPanel Orientation="Horizontal">
-
             <Button Width="64"
                     Height="64"
                     Margin="0, 0, 4, 0"
                     VerticalAlignment="Center"
-                    Tag="front"
-                    Click="OnImageClick">
+                    Click="{markups:EventBinding Name=ShowImageMenu, Argument=front}">
               <controls:IgnoreDpiPanel>
-                <controls:GBImageBox x:Name="FrontImage"
-                                     IsHitTestVisible="False" />
+                <Image x:Name="FrontImage"
+                       IsHitTestVisible="False" />
               </controls:IgnoreDpiPanel>
             </Button>
             <Button Width="64"
                     Height="64"
                     VerticalAlignment="Center"
-                    Tag="back"
-                    Click="OnImageClick">
+                    Click="{markups:EventBinding Name=ShowImageMenu, Argument=back}">
               <controls:IgnoreDpiPanel>
-                <controls:GBImageBox x:Name="BackImage"
-                                     IsHitTestVisible="False"
-                                     Width="56"
-                                     Height="56" />
+                <Image x:Name="BackImage"
+                       IsHitTestVisible="False"
+                       Width="56"
+                       Height="56" />
               </controls:IgnoreDpiPanel>
             </Button>
+            
             <Label VerticalAlignment="Center">/</Label>
+            
             <Button Width="64"
                     Height="64"
                     Margin="0, 0, 4, 0"
                     VerticalAlignment="Center"
-                    Tag="shiny_front"
-                    Click="OnImageClick">
+                    Click="{markups:EventBinding Name=ShowImageMenu, Argument=shiny_front}">
               <controls:IgnoreDpiPanel>
-                <controls:GBImageBox x:Name="FrontShinyImage"
-                                     IsHitTestVisible="False"
-                                     Width="56"
-                                     Height="56" />
+                <Image x:Name="FrontShinyImage"
+                       IsHitTestVisible="False"
+                       Width="56"
+                       Height="56" />
               </controls:IgnoreDpiPanel>
             </Button>
             <Button Width="64"
                     Height="64"
                     Margin="0, 0, 4, 0"
                     VerticalAlignment="Center"
-                    Tag="shiny_back"
-                    Click="OnImageClick">
+                    Click="{markups:EventBinding Name=ShowImageMenu, Argument=shiny_back}">
               <controls:IgnoreDpiPanel>
-                <controls:GBImageBox x:Name="BackShinyImage"
-                                     IsHitTestVisible="False"
-                                     Width="56"
-                                     Height="56" />
+                <Image x:Name="BackShinyImage"
+                       IsHitTestVisible="False"
+                       Width="56"
+                       Height="56" />
               </controls:IgnoreDpiPanel>
             </Button>
           </StackPanel>
-          
+
         </StackPanel>
       </ScrollViewer>
     </Border>

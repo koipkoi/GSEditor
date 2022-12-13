@@ -3,27 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:controls="clr-namespace:GSEditor.UI.Controls"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:markups="clr-namespace:GSEditor.Common.Markups;assembly=GSEditor.Common"
+             xmlns:controls="clr-namespace:GSEditor.UI.Controls"
+             xmlns:vm="clr-namespace:GSEditor.ViewModels.Tabs"
              mc:Ignorable="d"
              d:DesignHeight="1280"
-             d:DesignWidth="650">
-  <Grid>
+             d:DesignWidth="650"
+             Loaded="{markups:EventBinding RefreshTab}"
+             Unloaded="{markups:EventBinding UnloadTab}">
+  <UserControl.DataContext>
+    <vm:ItemsTabViewModel />
+  </UserControl.DataContext>
 
+  <Grid>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto" />
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
 
     <ListBox Grid.Column="0"
-             Name="ItemsListBox"
              Width="144"
              Margin="4"
              Style="{DynamicResource GSEditor_Style_ListBox_Colored}"
-             SelectionChanged="OnItemsSelectionChanged" />
+             SelectionChanged="{markups:EventBinding UpdateCurrentInfo}" />
 
     <Border Grid.Column="1"
-            Name="ContentBorder"
             Margin="0, 4, 4, 4"
             IsEnabled="False"
             Style="{DynamicResource GSEditor_Style_Border_Default}">
@@ -44,7 +49,7 @@
             <Label>이름：</Label>
             <TextBox Name="NameTextBox"
                      MaxLength="12"
-                     TextChanged="OnTextBoxTextChanged" />
+                     TextChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
             <Label>가격：</Label>
             <xctk:IntegerUpDown Name="PriceUpDown"
@@ -52,12 +57,12 @@
                                 Minimum="0"
                                 Maximum="65535"
                                 Value="0"
-                                ValueChanged="OnUpDownValueChaged" />
+                                ValueChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
             <Label>가방 분류：</Label>
             <ComboBox Name="GroupComboBox"
                       SelectedIndex="0"
-                      SelectionChanged="OnComboBoxSelectionChanged">
+                      SelectionChanged="{markups:EventBinding ApplyCurrentInfo}">
               <ComboBoxItem>없음</ComboBoxItem>
               <ComboBoxItem>도구</ComboBoxItem>
               <ComboBoxItem>중요한</ComboBoxItem>
@@ -75,7 +80,7 @@
                    AcceptsReturn="True"
                    FontSize="11pt"
                    FontFamily="consolas"
-                   TextChanged="OnTextBoxTextChanged" />
+                   TextChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
           <Label Margin="0, 16, 0, 8"
                  Style="{DynamicResource GSEditor_Style_Label_Section}">메뉴 설정</Label>
@@ -87,7 +92,7 @@
 
             <Label>필드：</Label>
             <ComboBox Name="FieldMenuComboBox"
-                      SelectionChanged="OnComboBoxSelectionChanged">
+                      SelectionChanged="{markups:EventBinding ApplyCurrentInfo}">
               <ComboBoxItem>사용할 수 없음</ComboBoxItem>
               <ComboBoxItem>?</ComboBoxItem>
               <ComboBoxItem>?</ComboBoxItem>
@@ -99,7 +104,7 @@
 
             <Label>배틀：</Label>
             <ComboBox Name="BattleMenuComboBox"
-                      SelectionChanged="OnComboBoxSelectionChanged">
+                      SelectionChanged="{markups:EventBinding ApplyCurrentInfo}">
               <ComboBoxItem>사용할 수 없음</ComboBoxItem>
               <ComboBoxItem>?</ComboBoxItem>
               <ComboBoxItem>?</ComboBoxItem>
@@ -120,11 +125,12 @@
 
             <Label>지닌 도구 효과：</Label>
             <ComboBox Name="GiveEffectComboBox"
-                      SelectionChanged="OnComboBoxSelectionChanged" />
+                      ItemsSource="{DynamicResource GSEditor_Strings_ItemEffects}"
+                      SelectionChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
             <Label>판매·등록 설정：</Label>
             <ComboBox Name="RegisterAndSellComboBox"
-                      SelectionChanged="OnComboBoxSelectionChanged">
+                      SelectionChanged="{markups:EventBinding ApplyCurrentInfo}">
               <ComboBoxItem>없음</ComboBoxItem>
               <ComboBoxItem>등록 불가</ComboBoxItem>
               <ComboBoxItem>판매 불가</ComboBoxItem>
@@ -137,7 +143,7 @@
                              Minimum="0"
                              Maximum="255"
                              Value="0"
-                             ValueChanged="OnUpDownValueChaged" />
+                             ValueChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
           </controls:FormPanel>
 

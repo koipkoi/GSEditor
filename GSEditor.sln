@@ -5,7 +5,13 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSEditor", "GSEditor\GSEditor.csproj", "{75CE283A-AF22-4AE9-B60E-C1EFE0FDB30C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSEditor.Common", "GSEditor.Common\GSEditor.Common.csproj", "{448587F3-D888-48B6-B799-7C7694C7BCD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSEditor.Common", "GSEditor.Common\GSEditor.Common.csproj", "{448587F3-D888-48B6-B799-7C7694C7BCD5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSEditor.Services", "GSEditor.Services\GSEditor.Services.csproj", "{5553F798-C9FB-4D21-B3E0-5B2F570B1238}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSEditor.Models", "GSEditor.Models\GSEditor.Models.csproj", "{AA754D0F-2B47-4EF7-A4DD-D9F79D61C7E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSEditor.Contracts", "GSEditor.Contracts\GSEditor.Contracts.csproj", "{20FFDAE6-3C6C-44BE-AED5-7669D6B77B9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{448587F3-D888-48B6-B799-7C7694C7BCD5}.Debug|x86.Build.0 = Debug|x86
 		{448587F3-D888-48B6-B799-7C7694C7BCD5}.Release|x86.ActiveCfg = Release|x86
 		{448587F3-D888-48B6-B799-7C7694C7BCD5}.Release|x86.Build.0 = Release|x86
+		{5553F798-C9FB-4D21-B3E0-5B2F570B1238}.Debug|x86.ActiveCfg = Debug|x86
+		{5553F798-C9FB-4D21-B3E0-5B2F570B1238}.Debug|x86.Build.0 = Debug|x86
+		{5553F798-C9FB-4D21-B3E0-5B2F570B1238}.Release|x86.ActiveCfg = Release|x86
+		{5553F798-C9FB-4D21-B3E0-5B2F570B1238}.Release|x86.Build.0 = Release|x86
+		{AA754D0F-2B47-4EF7-A4DD-D9F79D61C7E6}.Debug|x86.ActiveCfg = Debug|x86
+		{AA754D0F-2B47-4EF7-A4DD-D9F79D61C7E6}.Debug|x86.Build.0 = Debug|x86
+		{AA754D0F-2B47-4EF7-A4DD-D9F79D61C7E6}.Release|x86.ActiveCfg = Release|x86
+		{AA754D0F-2B47-4EF7-A4DD-D9F79D61C7E6}.Release|x86.Build.0 = Release|x86
+		{20FFDAE6-3C6C-44BE-AED5-7669D6B77B9D}.Debug|x86.ActiveCfg = Debug|x86
+		{20FFDAE6-3C6C-44BE-AED5-7669D6B77B9D}.Debug|x86.Build.0 = Debug|x86
+		{20FFDAE6-3C6C-44BE-AED5-7669D6B77B9D}.Release|x86.ActiveCfg = Release|x86
+		{20FFDAE6-3C6C-44BE-AED5-7669D6B77B9D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

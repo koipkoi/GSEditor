@@ -6,7 +6,7 @@ namespace GSEditor.UI.Controls;
 /// <summary>
 /// 양식 패널
 /// </summary>
-/// <see href="https://github.com/richbryant/FormPanel/blob/master/FormPanel/FormPanel.cs">원본 repo</remarks>
+/// <see href="https://github.com/richbryant/FormPanel/blob/master/FormPanel/FormPanel.cs">원본 repo</see>
 public sealed class FormPanel : Panel
 {
   public static readonly DependencyProperty ColumnsProperty = DependencyProperty.Register("Columns", typeof(int), typeof(FormPanel), new FrameworkPropertyMetadata(2, FrameworkPropertyMetadataOptions.AffectsMeasure));

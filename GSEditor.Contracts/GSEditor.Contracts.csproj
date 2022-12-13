@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GSEditor.Common\GSEditor.Common.csproj" />
+    <ProjectReference Include="..\GSEditor.Models\GSEditor.Models.csproj" />
+  </ItemGroup>
+
+</Project>

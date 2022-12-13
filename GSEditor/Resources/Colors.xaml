@@ -1,0 +1,11 @@
+﻿<ResourceDictionary x:Class="GSEditor.Resources.Colors"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <Color x:Key="GSEditor_Color_SystemAccent">#ff429ce3</Color>
+  <SolidColorBrush x:Key="GSEditor_Brush_SystemAccent">#ff429ce3</SolidColorBrush>
+
+  <Color x:Key="GSEditor_Color_SystemControl">#fff0f0f0</Color>
+  <SolidColorBrush x:Key="GSEditor_Brush_SystemControl">#fff0f0f0</SolidColorBrush>
+
+</ResourceDictionary>

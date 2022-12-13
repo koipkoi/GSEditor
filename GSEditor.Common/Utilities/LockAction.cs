@@ -1,29 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace GSEditor.Common.Utilities;
 
-public static class LockAction
+public sealed class LockAction
 {
-  private static readonly HashSet<object> _lock = new();
+  private bool _isLocked = false;
+  public bool IsLocked => _isLocked;
 
-  public static void RunSafe(this object lockKey, Action action)
+  public void Run(Action action)
   {
-    lock (lockKey)
+    if (_isLocked)
+      return;
+
+    try
     {
-      if (!_lock.Contains(lockKey))
-      {
-        _lock.Add(lockKey);
-        try
-        {
-          action();
-        }
-        catch (Exception)
-        {
-          // ignored
-        }
-        _lock.Remove(lockKey);
-      }
+      _isLocked = true;
+      action.Invoke();
+      _isLocked = false;
+    }
+    catch (Exception)
+    {
+      _isLocked = false;
     }
   }
 }

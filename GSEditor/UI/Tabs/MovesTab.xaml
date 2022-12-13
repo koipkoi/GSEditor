@@ -3,13 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:markups="clr-namespace:GSEditor.Common.Markups;assembly=GSEditor.Common"
              xmlns:controls="clr-namespace:GSEditor.UI.Controls"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:vm="clr-namespace:GSEditor.ViewModels.Tabs"
              mc:Ignorable="d"
              d:DesignHeight="1280"
-             d:DesignWidth="650">
-  <Grid>
+             d:DesignWidth="650"
+             Loaded="{markups:EventBinding RefreshTab}"
+             Unloaded="{markups:EventBinding UnloadTab}">
+  <UserControl.DataContext>
+    <vm:MovesTabViewModel />
+  </UserControl.DataContext>
 
+  <Grid>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto" />
       <ColumnDefinition Width="*" />
@@ -20,7 +27,7 @@
              Width="144"
              Margin="4"
              Style="{DynamicResource GSEditor_Style_ListBox_Colored}"
-             SelectionChanged="OnMovesListBoxSelectionChanged" />
+             SelectionChanged="{markups:EventBinding UpdateCurrentInfo}" />
 
     <Border Grid.Column="1"
             Name="ContentPanel"
@@ -48,12 +55,12 @@
             <Label>이름：</Label>
             <TextBox Name="NameTextBox"
                      MaxLength="7"
-                     TextChanged="OnTextBoxTextChanged" />
+                     TextChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
             <Label>타입：</Label>
             <ComboBox Name="TypeComboBox"
                       SelectedIndex="0"
-                      SelectionChanged="OnComboBoxSelectionChanged" />
+                      SelectionChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
             <Label>위력：</Label>
             <xctk:IntegerUpDown Name="PowerUpDown"
@@ -61,7 +68,7 @@
                                 Minimum="0"
                                 Maximum="255"
                                 Value="0"
-                                ValueChanged="OnUpDownValueChaged" />
+                                ValueChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
             <Label>명중률：</Label>
             <Grid>
@@ -74,7 +81,7 @@
                                   Minimum="0"
                                   Maximum="255"
                                   Value="0"
-                                  ValueChanged="OnUpDownValueChaged" />
+                                  ValueChanged="{markups:EventBinding ApplyCurrentInfo}" />
               <Label Grid.Column="1"
                      Name="AccuracyPercentageLabel"
                      MinWidth="50">100.00%</Label>
@@ -86,7 +93,7 @@
                                 Minimum="0"
                                 Maximum="255"
                                 Value="0"
-                                ValueChanged="OnUpDownValueChaged" />
+                                ValueChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
           </controls:FormPanel>
 
@@ -98,7 +105,7 @@
                    AcceptsReturn="True"
                    FontSize="11pt"
                    FontFamily="consolas"
-                   TextChanged="OnTextBoxTextChanged" />
+                   TextChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
           <Label Margin="0, 16, 0, 8"
                  Style="{DynamicResource GSEditor_Style_Label_Section}">효과</Label>
@@ -112,7 +119,7 @@
             <Label>타입：</Label>
             <ComboBox Name="EffectComboBox"
                       SelectedIndex="0"
-                      SelectionChanged="OnComboBoxSelectionChanged" />
+                      SelectionChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
             <Label>값：</Label>
             <xctk:IntegerUpDown Name="EffectUpDown"
@@ -120,7 +127,7 @@
                                 Minimum="0"
                                 Maximum="255"
                                 Value="0"
-                                ValueChanged="OnUpDownValueChaged" />
+                                ValueChanged="{markups:EventBinding ApplyCurrentInfo}" />
 
           </controls:FormPanel>
 
